@@ -10,8 +10,10 @@ import { PrincipalComponent } from './view/principal.component';
 import { RootComponent } from './view/root.component';
 import { RelatorioComponent } from './view/relatorio/relatorio.component';
 import { RelatorioReservasComponent } from './view/relatorio/relatorio-reservas.component';
-import { UsuarioComponent } from './view/admin/usuario.component';
+import { UsuarioComponent } from './view/register/usuario.component';
 import { AdminComponent } from './view/admin/admin.component';
+import { JuizoComponent } from './view/register/juizo.component';
+import { RegisterComponent } from './view/register/register.component';
 
 const appRoutes: Routes = [  
   { path: '', component: AppComponent},  
@@ -22,6 +24,11 @@ const appRoutes: Routes = [
           {path: 'reservas', component: RelatorioReservasComponent}
         ]  
       },
+      {path: 'register', component: RegisterComponent,
+        children: [
+          {path: 'juizo', component: JuizoComponent},
+          {path: 'usuario', component: UsuarioComponent}
+        ]},
       {path: 'admin', component: AdminComponent,
         children: [
           {path:'usuario', component: UsuarioComponent}
@@ -39,7 +46,9 @@ const appRoutes: Routes = [
     RelatorioComponent,
     RelatorioReservasComponent,
     UsuarioComponent,
-    AdminComponent
+    AdminComponent,
+    JuizoComponent,
+    RegisterComponent
   ],
   imports: [
     RouterModule.forRoot(
